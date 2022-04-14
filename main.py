@@ -90,9 +90,15 @@ if __name__ == '__main__':
 
         hourly = list(range(0, 24))
 
-        file_directory = r'C:\Users\Mehdi Alebrahim\Desktop\fpy\ef'
+        user = 'Mehdi Alebrahim'
 
-        mac_dire = r'C:\Users\Mehdi Alebrahim\Desktop\fwutech\mine_macro'
+        deskdir = fr'C:\Users\{user}\Desktop'
+
+        file_directory = fr'{deskdir}\Eff_n'
+
+        mac_dire = fr'{deskdir}\fwutech\mine_macro'
+
+        maindir = fr'{deskdir}\hello'
 
         userArg = input('Enter Argument : ')
 
@@ -308,7 +314,7 @@ if __name__ == '__main__':
 
                         x_data = df_hu[['User_MHZ']]
                         y_data = df_hu[['DL_User_Throughput']]
-                        pro_data = df_hu[['province']]
+                        pro_data = df_hu[['pro']]
                         sec_data = df_hu[['SECTOR']]
                     
 
@@ -613,5 +619,5 @@ if __name__ == '__main__':
                 
             case '0': 
 
-                os.chdir(r'C:\Users\Mehdi Alebrahim\Desktop\fpy')
+                os.chdir(maindir)
                 os.system(r'python hello.py')
