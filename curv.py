@@ -12,7 +12,7 @@ if __name__ == '__main__':
     
 
 
-    df_hu = pd.read_excel(f'HU_Efficiency_Data20220417.xlsx', sheet_name = f'7')
+    df_hu = pd.read_excel(f'data.xlsx', sheet_name = 'sheet')
 
 
     x_data = df_hu[['User_MHZ']]
