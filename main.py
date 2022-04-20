@@ -208,7 +208,7 @@ if __name__ == '__main__':
                         y_data = np.nan_to_num(y_data)
                         x_data = np.nan_to_num(x_data)
 
-                        popt, _ = curve_fit(curve_func, x_data, y_data)
+                        popt, _ = curve_fit(curve_func, x_data, y_data, maxfev = 10000)
 
                         a, b, c, d, e = popt
 
