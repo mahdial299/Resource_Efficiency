@@ -340,7 +340,7 @@ if __name__ == '__main__':
                         sec_data = list(sec_data)
                     
 
-                        popt, xamarin = curve_fit(curve_func, x_data, y_data)
+                        popt, xamarin = curve_fit(curve_func, x_data, y_data, maxfev = 10000)
                         a, b, c, d, e = popt
 
                         x_line = np.arange(min(x_data), max(x_data), 1)
