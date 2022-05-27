@@ -1,4 +1,5 @@
 
+from cProfile import label
 from collections import Counter
 from datetime import datetime, timedelta
 from math import comb
@@ -141,6 +142,10 @@ if __name__ == '__main__':
 
             case '1':      
 
+                plt.scatter(0, 0, color='yellow', label='warm_up')
+                plt.style.use('dark_background')
+                plt.show()
+
                 os.chdir(file_directory)
 
                 for item in hourly:
@@ -171,12 +176,14 @@ if __name__ == '__main__':
                         print(not np.isinf(y_data).any())
 
                         x_data = np.nan_to_num(x_data)
-                    
 
                         plt.scatter(x_data, y_data, color='blue',
                                 label=f'data_{item}')
+                        plt.xlabel(f'hour {item}')
+                        plt.ylabel('user_throughput')
+                        plt.grid(True)
                         plt.legend()
-                        plt.style.use('bmh')
+                        plt.style.use('dark_background')
                         plt.show()
 
                     except(TypeError, KeyError,RuntimeError, ValueError):
@@ -184,6 +191,10 @@ if __name__ == '__main__':
                         continue
 
             case '2':     
+
+                plt.scatter(0, 0, color='yellow', label='warm_up')
+                plt.style.use('dark_background')
+                plt.show()
 
                 os.chdir(file_directory)
 
@@ -232,8 +243,11 @@ if __name__ == '__main__':
     
                         plt.plot(x_line, y_line, '--', color='red',
                             label=f'Baseline_{item}', linewidth=4)
+                        plt.xlabel(f'hour {item}')
+                        plt.ylabel('baseline')
+                        plt.grid(True)
                         plt.legend()
-                        plt.style.use('bmh')
+                        plt.style.use('dark_background')
                         plt.show()
 
                     except(KeyError, TypeError, RuntimeError, ValueError):
@@ -242,7 +256,11 @@ if __name__ == '__main__':
 
                         continue                 
                     
-            case '3':         
+            case '3':       
+
+                plt.scatter(0, 0, color='yellow', label='warm_up')
+                plt.style.use('dark_background')
+                plt.show()  
 
                 os.chdir(file_directory)
 
@@ -281,8 +299,9 @@ if __name__ == '__main__':
                                     label=f'data_{item}')
                         plt.plot(x_line, y_line, '--', color='red',
                                 label=f'Baseline_{item}', linewidth=4)
+                        plt.grid(True)
                         plt.legend()
-                        plt.style.use('bmh')
+                        plt.style.use('dark_background')
                         plt.show()
 
                     except(KeyError, TypeError, RuntimeError, ValueError):
