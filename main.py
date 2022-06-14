@@ -61,6 +61,7 @@ def lister():
     3. Data scatter + Baseline 
     4. Excel generator
     5. Excel super stream
+    6. Final renameer
 
 
     0. Exit
@@ -635,6 +636,11 @@ if __name__ == '__main__':
                     except(TypeError, KeyError, RuntimeError, ValueError):
 
                         continue
+
+            case '6':
+
+                os.chdir(fr'{file_directory}')
+                os.rename('Efficiency_dashboard_new.xlsx', fr'Efficiency dashboard new{yestr_y}-{yestr_m}-{yestr_d}.xlsx')
                 
             case '0': 
 
