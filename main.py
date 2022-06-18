@@ -448,10 +448,12 @@ if __name__ == '__main__':
                             y3 = []
                             AG_worst = []
                             pro_worst = []
+                            pro_good = []
                             index_worst = []
 
                             
-                            pro_good = []
+                            pro_main = []
+
 
 
                             list_status = []
@@ -469,8 +471,9 @@ if __name__ == '__main__':
                                         y3.append(y_data[i])
                                         index_worst.append(index_data[i])
                                         pro_worst.append(pro_data[i])
+                                        pro_main.append(pro_data[i])
                                         list_status.append("WORST")
-                                        bh.append(item)
+                                        bh.append(f"BH Time [{item}]")
 
                                 
                                     elif y_data[i] > n_a / (n_d * x_data[i] + n_c * (x_data[i] ** 2) + n_b * (x_data[i] ** 3) + n_e):
@@ -479,9 +482,10 @@ if __name__ == '__main__':
                                         x3.append(x_data[i])
                                         y3.append(y_data[i])
                                         pro_good.append(pro_data[i])
+                                        pro_main.append(pro_data[i])
                                         index_worst.append(index_data[i])
                                         list_status.append("GOOD")
-                                        bh.append(item)
+                                        bh.append(f"BH Time [{item}]")
 
                                         
                             print(R + f'province :' + W + f'{dict(Counter(pro_worst))}')
@@ -514,28 +518,31 @@ if __name__ == '__main__':
                             outSheet1.write("A1", "CELLS")
                             outSheet1.write(0, 0, "SECTORS")
                             # outSheet1.write(0, 0, "Worst SECTORS")
-                            outSheet1.write(0, 1, "BH time")
-                            outSheet1.write(0, 2, "User per MHz")
-                            outSheet1.write(0, 3, "User throughput")
-                            outSheet1.write(0, 4, "DISTANCE TO EXPECTED THROUGHPUT")
-                            outSheet1.write(0, 5, "STATUS")
-                            outSheet1.write(0, 6, "Index")
+                            outSheet1.write(0, 1, "province")
+                            outSheet1.write(0, 2, "BH time")
+                            outSheet1.write(0, 3, "User per MHz")
+                            outSheet1.write(0, 4, "User throughput")
+                            outSheet1.write(0, 5, "DISTANCE TO EXPECTED THROUGHPUT")
+                            outSheet1.write(0, 6, "STATUS")
+                            outSheet1.write(0, 7, "Index")
 
     
                             for k in range(len(AG_worst)):
                                 outSheet1.write(k + 1, 0, AG_worst[k])
+                            for p in range(len(pro_main)):
+                                outSheet1.write(p + 1, 1, pro_main[p])
                             for q in range(len(bh)):
-                                outSheet1.write(q + 1, 1, bh[q])
+                                outSheet1.write(q + 1, 2, bh[q])
                             for j in range(len(x3)):
-                                outSheet1.write(j + 1, 2, x3[j])
+                                outSheet1.write(j + 1, 3, x3[j])
                             for k in range(len(y3)):
-                                outSheet1.write(k + 1, 3, y3[k])
+                                outSheet1.write(k + 1, 4, y3[k])
                             for m in range(len(diff_worst)):
-                                outSheet1.write(m + 1, 4, diff_worst[m])
+                                outSheet1.write(m + 1, 5, diff_worst[m])
                             for o in range(len(list_status)):
-                                outSheet1.write(o + 1, 5, list_status[o])
+                                outSheet1.write(o + 1, 6, list_status[o])
                             for s in range(len(index_worst)):
-                                outSheet1.write(s + 1, 6, index_worst[s])
+                                outSheet1.write(s + 1, 7, index_worst[s])
                             outWorkbook1.close()
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -546,12 +553,15 @@ if __name__ == '__main__':
                         os.chdir(fr'{file_directory}\{item}')
                         outWorkbook2 = xlsxwriter.Workbook(f"2_Baseline_CELLS_{item}.xlsx")
                         outSheet2 = outWorkbook2.add_worksheet()
-                        outSheet2.write(0, 0, "X")
-                        outSheet2.write(0, 1, "Y")
+                        outSheet2.write(0, 0, "BH time")
+                        outSheet2.write(0, 1, "X")
+                        outSheet2.write(0, 2, "Y")
                         for k in range(len(x_line)):
-                            outSheet2.write(k,0, x_line[k])
+                            outSheet2.write(k+1,0, f"BH Time [{item}]")
+                        for k in range(len(x_line)):
+                            outSheet2.write(k+1,1, x_line[k])
                         for k in range(len(y_line)):
-                            outSheet2.write(k,1, y_line[k])
+                            outSheet2.write(k+1,2, y_line[k])
                         outWorkbook2.close()
 
                         # for ergo in tqdm(range(10), colour='green', desc=f'hour {item} progress : '):
