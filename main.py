@@ -334,7 +334,8 @@ if __name__ == '__main__':
 
                         x_data = df_hu[['User_MHZ']]
                         y_data = df_hu[['DL_User_Throughput']]
-                        pro_data = df_hu[['pro']]
+                        index_data = df_hu[['INDEX']]
+                        pro_data = df_hu[['PRO']]
                         sec_data = df_hu[['SECTOR']]
                     
 
@@ -342,12 +343,14 @@ if __name__ == '__main__':
                         y_data = np.asanyarray(y_data)
                         pro_data = np.asanyarray(pro_data)
                         sec_data = np.asanyarray(sec_data)
+                        index_data = np.asanyarray(index_data)
                     
 
                         x_data = x_data.flatten()
                         y_data = y_data.flatten()
                         pro_data = pro_data.flatten()
                         sec_data = sec_data.flatten()
+                        index_data = index_data.flatten()
 
                         
 
@@ -358,6 +361,7 @@ if __name__ == '__main__':
                         y_data = list(y_data)
                         pro_data = list(pro_data)
                         sec_data = list(sec_data)
+                        index_data = list(index_data)
                     
 
                         popt, xamarin = curve_fit(curve_func, x_data, y_data, maxfev = 10000)
@@ -444,6 +448,7 @@ if __name__ == '__main__':
                             y3 = []
                             AG_worst = []
                             pro_worst = []
+                            index_worst = []
 
                             
                             pro_good = []
@@ -462,6 +467,7 @@ if __name__ == '__main__':
                                         AG_worst.append(sec_data[i])
                                         x3.append(x_data[i])
                                         y3.append(y_data[i])
+                                        index_worst.append(index_data[i])
                                         pro_worst.append(pro_data[i])
                                         list_status.append("WORST")
                                         bh.append(item)
@@ -473,6 +479,7 @@ if __name__ == '__main__':
                                         x3.append(x_data[i])
                                         y3.append(y_data[i])
                                         pro_good.append(pro_data[i])
+                                        index_worst.append(index_data[i])
                                         list_status.append("GOOD")
                                         bh.append(item)
 
@@ -512,6 +519,7 @@ if __name__ == '__main__':
                             outSheet1.write(0, 3, "User throughput")
                             outSheet1.write(0, 4, "DISTANCE TO EXPECTED THROUGHPUT")
                             outSheet1.write(0, 5, "STATUS")
+                            outSheet1.write(0, 6, "Index")
 
     
                             for k in range(len(AG_worst)):
@@ -526,6 +534,8 @@ if __name__ == '__main__':
                                 outSheet1.write(m + 1, 4, diff_worst[m])
                             for o in range(len(list_status)):
                                 outSheet1.write(o + 1, 5, list_status[o])
+                            for s in range(len(index_worst)):
+                                outSheet1.write(s + 1, 6, index_worst[s])
                             outWorkbook1.close()
 # ----------------------------------------------------------------------------------------------------------------
 
