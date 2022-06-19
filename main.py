@@ -660,7 +660,7 @@ if __name__ == '__main__':
             case '6':
 
                 os.chdir(fr'{file_directory}')
-                os.rename('Efficiency_dashboard_new.xlsx', fr'Efficiency dashboard new{yestr_y}-{yestr_m}-{yestr_d}.xlsx')
+                os.rename('Efficiency_dashboard_new.xlsx', fr'Resource Efficiency dashboard-{yestr_y}-{yestr_m}-{yestr_d}.xlsx')
                 
             case '0': 
 
