@@ -13,7 +13,7 @@ import pyfiglet
 import os
 import shutil
 import xlsxwriter
-from glob import glob
+import glob
 import sys
 from zipfile import ZipFile
 import time
@@ -61,7 +61,8 @@ def lister():
     3. Data scatter + Baseline 
     4. Excel generator
     5. Excel super stream
-    6. Final renameer
+    6. final export
+    7. Final renamer
 
 
     0. Exit
@@ -658,6 +659,29 @@ if __name__ == '__main__':
                         continue
 
             case '6':
+
+                conat_file_destin = fr'{file_directory}\final_data'
+ 
+
+                file_list = glob.glob(conat_file_destin + "/*.xlsx")
+                
+
+                excl_list = []
+                
+                for file in file_list:
+                    excl_list.append(pd.read_excel(file))
+                
+
+                excl_merged = pd.DataFrame()
+                    
+                
+                excl_merged = pd.concat(
+                    excl_list, ignore_index=True)
+
+                excl_merged.to_excel('report_data_generation.xlsx', index=False)
+
+
+            case '7':
 
                 os.chdir(fr'{file_directory}')
                 os.rename('Efficiency_dashboard_new.xlsx', fr'Resource Efficiency dashboard-{yestr_y}-{yestr_m}-{yestr_d}.xlsx')
