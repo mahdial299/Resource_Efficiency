@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
         file_directory = fr'{deskdir}\Eff_n'
 
-        mac_dire = fr'{deskdir}\fwutech\mine_macro'
+        mac_dire = fr'E:\fwutech\mine_macro'
 
         maindir = fr'{deskdir}\hello'
 
