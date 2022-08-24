@@ -93,7 +93,7 @@ if __name__ == '__main__':
 
         hourly = list(range(0, 24))
 
-        user = 'Mehdi Alebrahim'
+        user = 'm.alebrahim'
 
         deskdir = fr'C:\Users\{user}\Desktop'
 
