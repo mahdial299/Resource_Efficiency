@@ -30,5 +30,8 @@ clear final data
 - numpy
 - sklearn
 - matplotlib
-- xlswriter
+- xlsxwriter
+- glob
+- Counter
+- tqdm (optional)
 - Pyfiglet
