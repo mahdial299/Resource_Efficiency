@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
         hourly = list(range(0, 24))
 
-        user = 'system.username'  # change it to yours
+        user = 'Retr0'  # change it to yours
 
         deskdir = fr'C:\Users\{user}\Desktop'
 
@@ -103,7 +103,7 @@ if __name__ == '__main__':
 
                         print(f"")
 
-                        df_hu = pd.read_excel(f'HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx', sheet_name = f'{item}')
+                        df_hu = pd.read_excel(f'netpara.xlsx', sheet_name = f'{item}')
                     
 
                         x_data = df_hu[['User_MHZ']]
@@ -126,13 +126,13 @@ if __name__ == '__main__':
 
                         x_data = np.nan_to_num(x_data)
 
+                        plt.style.use('dark_background')
                         plt.scatter(x_data, y_data, color='blue',
-                                label=f'data_{item}')
+                                label=f'Hour_{item}_samples')
                         plt.xlabel(f'hour {item}')
                         plt.ylabel('user_throughput')
                         plt.grid(True)
                         plt.legend()
-                        plt.style.use('dark_background')
                         plt.show()
 
                     except(TypeError, KeyError,RuntimeError, ValueError):
@@ -148,7 +148,7 @@ if __name__ == '__main__':
                     try:
 
 
-                        df_hu = pd.read_excel(f'HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx', sheet_name = f'{item}')
+                        df_hu = pd.read_excel(f'netpara.xlsx', sheet_name = f'{item}')
                     
 
                         x_data = df_hu[['User_MHZ']]
@@ -185,14 +185,13 @@ if __name__ == '__main__':
                         {round(e, 5)}
                         ---------------------''')
 
-    
+                        plt.style.use('dark_background')
                         plt.plot(x_line, y_line, '--', color='red',
                             label=f'Baseline_{item}', linewidth=4)
                         plt.xlabel(f'hour {item}')
                         plt.ylabel('baseline')
                         plt.grid(True)
                         plt.legend()
-                        plt.style.use('dark_background')
                         plt.show()
 
                     except(KeyError, TypeError, RuntimeError, ValueError):
@@ -210,7 +209,7 @@ if __name__ == '__main__':
                     try:
 
 
-                        df_hu = pd.read_excel(f'HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx', sheet_name = f'{item}')
+                        df_hu = pd.read_excel(f'netpara.xlsx', sheet_name = f'{item}')
                     
 
                         x_data = df_hu[['User_MHZ']]
@@ -236,13 +235,13 @@ if __name__ == '__main__':
                         x_line = np.arange(min(x_data), max(x_data), 1)
                         y_line = curve_func(x_line, a, b, c, d, e)
 
+                        plt.style.use('dark_background')
                         plt.scatter(x_data, y_data, color='blue',
                                     label=f'data_{item}')
                         plt.plot(x_line, y_line, '--', color='red',
                                 label=f'Baseline_{item}', linewidth=4)
                         plt.grid(True)
                         plt.legend()
-                        plt.style.use('dark_background')
                         plt.show()
 
                     except(KeyError, TypeError, RuntimeError, ValueError):
@@ -255,21 +254,21 @@ if __name__ == '__main__':
 
                 os.chdir(file_directory)
 
-                data_source = fr'{file_directory}\HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx'
+                data_source = fr'{file_directory}\netpara.xlsx'
 
                 for item in hourly:
 
                     try:
 
                         os.makedirs(fr'{file_directory}/{item}')
-                        data_dest = fr'{file_directory}\{item}\HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx'
+                        data_dest = fr'{file_directory}\{item}\netpara.xlsx'
 
 
                         shutil.copyfile(data_source, data_dest)
 
                         os.chdir(fr'{file_directory}\{item}')
 
-                        df_hu = pd.read_excel(f'HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx', sheet_name = f'{item}')
+                        df_hu = pd.read_excel(f'netpara.xlsx', sheet_name = f'{item}')
                     
 
                         x_data = df_hu[['User_MHZ']]
@@ -526,7 +525,7 @@ if __name__ == '__main__':
 
                         os.chdir(destination)
 
-                        os.system(fr'rm HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx')
+                        os.system(fr'rm netpara.xlsx')
 
                         excel_list_refrence = [
                             f'PROVINCE(0)_{item}.xlsx',
