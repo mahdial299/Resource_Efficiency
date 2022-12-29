@@ -1,4 +1,3 @@
-
 from cProfile import label
 from collections import Counter
 from datetime import datetime, timedelta
@@ -55,16 +54,13 @@ def ban():
 
 
 def lister():
-    print(C + f'''    g. Raw data excel generator
+    print(C + f'''    
     1. Scatter data
     2. Baseline check
     3. Data scatter + Baseline 
     4. Excel generator
     5. Excel super stream
     6. final export
-    7. Final renamer
-
-
     0. Exit
 {R + splitter}''' + W)
 
@@ -75,13 +71,7 @@ def curve_func(x, a, b, c, d, e):
 
 if __name__ == '__main__':
 
-    # x_warm = [0]
-    # y_warm = [0]
 
-    # plt.scatter(x_warm, y_warm, color = 'red', label = 'warmUp')
-    # plt.legend()
-    # plt.style.use('bmh')
-    # plt.show()
 
     while True:
 
@@ -93,60 +83,17 @@ if __name__ == '__main__':
 
         hourly = list(range(0, 24))
 
-        user = 'm.alebrahim'
+        user = 'system.username'  # change it to yours
 
         deskdir = fr'C:\Users\{user}\Desktop'
 
         file_directory = fr'{deskdir}\Eff_n'
 
-        mac_dire = fr'E:\fwutech\mine_macro'
-
-        maindir = fr'{deskdir}\hello'
-
         userArg = input('Enter Argument : ')
 
         match userArg:
 
-            case 'g':  #-------------------------------- replace with macro
-
-                os.chdir(mac_dire)
-
-                os.system(r'start Resource_Efficiency_Data_Splitter.xlsm')
-
-                # outWorkbook2 = xlsxwriter.Workbook(f"test_data_1.xlsx")
-
-                # outSheet2 = outWorkbook2.add_worksheet(name = '0')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '1')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '2')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '3')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '4')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '5')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '6')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '7')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '8')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '9')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '10')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '11')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '12')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '13')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '14')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '15')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '16')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '17')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '18')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '19')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '20')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '21')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '22')
-                # outSheet2 = outWorkbook2.add_worksheet(name = '23')
-
-                # outWorkbook2.close()
-
             case '1':      
-
-                plt.scatter(0, 0, color='yellow', label='warm_up')
-                plt.style.use('dark_background')
-                plt.show()
 
                 os.chdir(file_directory)
 
@@ -193,10 +140,6 @@ if __name__ == '__main__':
                         continue
 
             case '2':     
-
-                plt.scatter(0, 0, color='yellow', label='warm_up')
-                plt.style.use('dark_background')
-                plt.show()
 
                 os.chdir(file_directory)
 
@@ -259,10 +202,6 @@ if __name__ == '__main__':
                         continue                 
                     
             case '3':       
-
-                plt.scatter(0, 0, color='yellow', label='warm_up')
-                plt.style.use('dark_background')
-                plt.show()  
 
                 os.chdir(file_directory)
 
@@ -378,7 +317,6 @@ if __name__ == '__main__':
                         print(f'eq_{item}: {final}')
 
                         genix = f''' {final}
-
                         a = {round(a, 5)} : Numerator
                         b = {round(b, 5)} : Coef X^3
                         c = {round(c, 5)} : Coef X^2
@@ -405,24 +343,24 @@ if __name__ == '__main__':
                         n_e = round(e, 5)
 
                         province_list = [
-                        'AR',
-                        'QN',
-                        'ZN',
-                        'BU',
-                        'HZ',
-                        'LN',
-                        'KD',
-                        'KS',
-                        'HN',
-                        'FS',
-                        'ES',
-                        'AG',
-                        'AS',
-                        'IL',
-                        'KZ',
-                        'TH',
-                        'KM',
-                        'QM']
+                        'PROVINCE(0)',
+                        'PROVINCE(1)',
+                        'PROVINCE(2)',
+                        'PROVINCE(3)',
+                        'PROVINCE(4)',
+                        'PROVINCE(5)',
+                        'PROVINCE(6)',
+                        'PROVINCE(7)',
+                        'PROVINCE(8)',
+                        'PROVINCE(9)',
+                        'PROVINCE(10)',
+                        'PROVINCE(11)',
+                        'PROVINCE(12)',
+                        'PROVINCE(13)',
+                        'PROVINCE(14)',
+                        'PROVINCE(15)',
+                        'PROVINCE(16)',
+                        'PROVINCE(17)']
 
                         for z in range(len(province_list)):
 
@@ -565,8 +503,6 @@ if __name__ == '__main__':
                             outSheet2.write(k+1,2, y_line[k])
                         outWorkbook2.close()
 
-                        # for ergo in tqdm(range(10), colour='green', desc=f'hour {item} progress : '):
-                        #     time.sleep(1)
 
                     except(TypeError, KeyError, RuntimeError, ValueError):
 
@@ -593,24 +529,24 @@ if __name__ == '__main__':
                         os.system(fr'rm HU_Efficiency_Data{yestr_y}{yestr_m}{yestr_d}.xlsx')
 
                         excel_list_refrence = [
-                            f'AG_{item}.xlsx',
-                            f'AR_{item}.xlsx',
-                            f'AS_{item}.xlsx',
-                            f'BU_{item}.xlsx',
-                            f'ES_{item}.xlsx',
-                            f'FS_{item}.xlsx',
-                            f'HN_{item}.xlsx',
-                            f'HZ_{item}.xlsx',
-                            f'IL_{item}.xlsx',
-                            f'KD_{item}.xlsx',
-                            f'KM_{item}.xlsx',
-                            f'KS_{item}.xlsx',
-                            f'KZ_{item}.xlsx',
-                            f'LN_{item}.xlsx',
-                            f'QM_{item}.xlsx',
-                            f'QN_{item}.xlsx',
-                            f'TH_{item}.xlsx',
-                            f'ZN_{item}.xlsx'
+                            f'PROVINCE(0)_{item}.xlsx',
+                            f'PROVINCE(1)_{item}.xlsx',
+                            f'PROVINCE(2)_{item}.xlsx',
+                            f'PROVINCE(3)_{item}.xlsx',
+                            f'PROVINCE(4)_{item}.xlsx',
+                            f'PROVINCE(5)_{item}.xlsx',
+                            f'PROVINCE(6)_{item}.xlsx',
+                            f'PROVINCE(7)_{item}.xlsx',
+                            f'PROVINCE(8)_{item}.xlsx',
+                            f'PROVINCE(9)_{item}.xlsx',
+                            f'PROVINCE(10)_{item}.xlsx',
+                            f'PROVINCE(11)_{item}.xlsx',
+                            f'PROVINCE(12)_{item}.xlsx',
+                            f'PROVINCE(13)_{item}.xlsx',
+                            f'PROVINCE(14)_{item}.xlsx',
+                            f'PROVINCE(15)_{item}.xlsx',
+                            f'PROVINCE(16)_{item}.xlsx',
+                            f'PROVINCE(17)_{item}.xlsx'
                         ]
 
                         emp = []
@@ -680,13 +616,7 @@ if __name__ == '__main__':
 
                 excl_merged.to_excel('report_data_generation.xlsx', index=False)
 
-
-            case '7':
-
-                os.chdir(fr'{file_directory}')
-                os.rename('Efficiency_dashboard_new.xlsx', fr'Resource Efficiency dashboard-{yestr_y}-{yestr_m}-{yestr_d}.xlsx')
                 
             case '0': 
 
-                os.chdir(maindir)
-                os.system(r'python hello.py')
+                sys.exit()
