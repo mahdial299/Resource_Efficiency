@@ -16,9 +16,12 @@ for each hour.
 ![](img/base.PNG)
 ## 3. create the curve_fit model (raw data + base line for each hour)
 ![](img/model.PNG)
-## 4. create excel files of calculated coefficients and baseline values for each provicne
+## 4. create excel files of coefficients and baselines
+create excel files of calculated coefficients and baseline values for each provicne
 ## 5. merge all files
+merge all files together and create final files (baselines/finaldata filders)
 ## 6. final data
+clear final data
 
 # Requirements
 
